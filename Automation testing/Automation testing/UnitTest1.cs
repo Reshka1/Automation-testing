@@ -22,14 +22,13 @@ namespace Automation_testing
             IWebElement lnkLogin = webDriver.FindElement(By.LinkText("Увійти до особистого кабінету"));
             lnkLogin.Click();
 
-            var txtUzerName = webDriver.FindElement(By.Name("login[username]"));
+            var txtUserName = webDriver.FindElement(By.LinkText("Електронна пошта"));
 
+            Assert.That(txtUserName.Displayed, Is.True);
 
-            Assert.That(txtUzerName.Displayed, Is.True);
+            txtUserName.SendKeys("0504542520");
 
-            txtUzerName.SendKeys("0504542520");
-
-            webDriver.FindElement(By.Name("login[password]")).SendKeys("password");
+            webDriver.FindElement(By.LinkText("Пароль")).SendKeys("password");
             webDriver.FindElement(By.XPath("//input[@value='Увійти']")).Submit();
 
             var lnkProYakaboo = webDriver.FindElement(By.LinkText("Про Yakaboo"));
