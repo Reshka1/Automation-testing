@@ -31,8 +31,7 @@ namespace Autotest_Multiplex
 
 
         [Test]
-        public void Test1()  //renameclass, file
-            //del one browser's instance
+        public void AutotestMultiplex()
         {
             init.ClickLogin();
             Thread.Sleep(1000);
@@ -43,7 +42,7 @@ namespace Autotest_Multiplex
             Thread.Sleep(2000);
 
 
-            //explicit wait implicitwait
+           
             //fluent assertions c# 
             string actualTel = login.CheckUserTel();
             string expectedTel = "+380 (50) 454 2520";
@@ -65,6 +64,6 @@ namespace Autotest_Multiplex
             //Assert.AreEqual(_expectedtel, actualtel, "telephone is wrong, check it");
         }
 
-        
+
     }
 }

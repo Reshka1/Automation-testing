@@ -16,9 +16,7 @@ namespace Autotest_Multiplex
         //вызывается перед тестом
         public void Setup()
         {
-            string path = Directory.GetCurrentDirectory();
-            IWebDriver webDriver = new ChromeDriver();
-            driver = new OpenQA.Selenium.Chrome.ChromeDriver();
+            driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://multiplex.ua/");
             driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
 
