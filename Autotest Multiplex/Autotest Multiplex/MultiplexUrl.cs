@@ -1,6 +1,8 @@
-﻿using NUnit.Framework;
+﻿using NodaTime;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +21,7 @@ namespace Autotest_Multiplex
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://multiplex.ua/");
             driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
+            
 
         }
 
