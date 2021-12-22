@@ -1,7 +1,9 @@
 using Autotest_Multiplex.PageObject;
+using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.IO;
 using System.Threading;
@@ -28,27 +30,35 @@ namespace Autotest_Multiplex
         {
             init = new InitPage(driver);
             login = new LoginPage();
+
         }
 
 
         [Test]
         public void AutotestMultiplex()
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+
             init.ClickLogin();
             //Thread.Sleep(1000);
 
+
             login.UserTel("504542520");
-           // Thread.Sleep(2000);
+            // Thread.Sleep(2000);
+
 
             login.ClickLoginBtn();
             //Thread.Sleep(2000);
 
 
-            //fluent assertions c# 
             string actualTel = login.CheckUserTel();
             string expectedTel = "+380 (50) 454 2520";
             Assert.AreEqual(expectedTel, actualTel, $"{expectedTel} is not equal to {actualTel}");
+
+
+            object Tel = "+380 (50) 454 2520";
+            Tel.Should().NotBeNull();
+
+
 
             //var signIn = driver.FindElement(_signInButton);
             //signIn.Click();

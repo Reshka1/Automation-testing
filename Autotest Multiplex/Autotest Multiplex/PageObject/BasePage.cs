@@ -9,6 +9,10 @@ namespace Autotest_Multiplex.PageObject
     {
         protected static IWebDriver driver;
 
+        public BasePage()
+        {
+        }
+
         public BasePage(IWebDriver webDriver)
         {
             driver = webDriver;

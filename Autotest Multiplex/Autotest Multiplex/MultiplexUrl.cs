@@ -21,8 +21,8 @@ namespace Autotest_Multiplex
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://multiplex.ua/");
             driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
-            
-
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(50));
+           
         }
 
         [TearDown]

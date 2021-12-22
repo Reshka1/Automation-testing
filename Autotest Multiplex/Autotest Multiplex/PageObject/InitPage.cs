@@ -12,6 +12,7 @@ namespace Autotest_Multiplex.PageObject
 
         }
 
+
         private IWebElement btnLogin => driver.FindElement(By.ClassName("lk_link"));
         public void ClickLogin() => btnLogin.Click();
     }

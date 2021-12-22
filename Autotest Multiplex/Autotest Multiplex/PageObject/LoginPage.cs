@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NodaTime;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -8,14 +9,16 @@ namespace Autotest_Multiplex.PageObject
 {
     public class LoginPage : BasePage
     {
-        public LoginPage() : base(driver)// убрать драйвер с параметров
+        public LoginPage() : base()
         {
 
         }
+
+        
         private IWebElement loginInputButton => driver.FindElement(By.XPath("//input[@type='tel']"));
 
         private IWebElement continueButton => driver.FindElement(By.XPath("//div[contains(@class, 'login__phone__submit active')]"));
-        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+       
         private IWebElement checkTel => driver.FindElement(By.XPath("//p[contains(@class, 'login__submitted__phone__val ')]"));
 
         public void UserTel(string text) => loginInputButton.SendKeys(text);
