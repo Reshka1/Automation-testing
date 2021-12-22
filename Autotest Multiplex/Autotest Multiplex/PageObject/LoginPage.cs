@@ -14,9 +14,11 @@ namespace Autotest_Multiplex.PageObject
         }
         private IWebElement loginInputButton => driver.FindElement(By.XPath("//input[@type='tel']"));
 
-        private IWebElement continueButton => driver.FindElement(By.XPath("//div[contains(@class, 'login__phone__submit active')]"));
-        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-        private IWebElement checkTel => driver.FindElement(By.XPath("//p[contains(@class, 'login__submitted__phone__val ')]"));
+        private IWebElement continueButton => 
+            driver.FindElement(By.XPath("//div[contains(@class, 'login__phone__submit active')]"));
+        
+        private IWebElement checkTel => 
+            driver.FindElement(By.XPath("//p[contains(@class, 'login__submitted__phone__val ')]"));
 
         public void UserTel(string text) => loginInputButton.SendKeys(text);
         public void ClickLoginBtn() => continueButton.Click();

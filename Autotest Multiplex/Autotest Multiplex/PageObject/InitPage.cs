@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Autotest_Multiplex.PageObject
 {
+    /// <summary>
+    /// что тут сделала
+    /// </summary>
     class InitPage : BasePage
     {
         public InitPage(IWebDriver driver) : base (driver)
