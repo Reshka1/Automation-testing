@@ -1,4 +1,5 @@
 using Autotest_Multiplex.PageObject;
+using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -45,10 +46,11 @@ namespace Autotest_Multiplex
             //Thread.Sleep(2000);
 
 
-            //fluent assertions c# 
             string actualTel = login.CheckUserTel();
             string expectedTel = "+380 (50) 454 2520";
             Assert.AreEqual(expectedTel, actualTel, $"{expectedTel} is not equal to {actualTel}");
+
+            actualTel.Should().NotBeEmpty(); 
 
             //var signIn = driver.FindElement(_signInButton);
             //signIn.Click();

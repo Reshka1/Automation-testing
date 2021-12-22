@@ -8,7 +8,7 @@ namespace Autotest_Multiplex.PageObject
 {
     public class LoginPage : BasePage
     {
-        public LoginPage() : base(driver)// убрать драйвер с параметров
+        public LoginPage() : base()
         {
 
         }
