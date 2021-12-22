@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Autotest_Multiplex.PageObject
 {
-    public class BasePage// abstract
+    public class BasePage
     {
         protected static IWebDriver driver;
 
