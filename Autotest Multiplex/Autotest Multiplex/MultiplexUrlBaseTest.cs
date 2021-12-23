@@ -17,6 +17,8 @@ namespace Autotest_Multiplex
         protected DefaultWait<IWebDriver> fluentWait;
         protected WebDriverWait wait;
 
+ 
+
         [SetUp]
         //вызывается перед тестом
         public void Setup()
@@ -28,13 +30,13 @@ namespace Autotest_Multiplex
             driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
 
-            fluentWait.Timeout = TimeSpan.FromSeconds(5);
+            fluentWait.Timeout = TimeSpan.FromSeconds(20);
             fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
-            /* Ignore the exception - NoSuchElementException that indicates that the element is not present */
             fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
             fluentWait.Message = "Element to be searched not found";
+
 
 
         }

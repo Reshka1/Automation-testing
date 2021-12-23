@@ -26,6 +26,7 @@ namespace Autotest_Multiplex.Tests
         InitPage init;
         LoginPage login;
 
+
         [SetUp]
         public void TeastSetups()
         {
