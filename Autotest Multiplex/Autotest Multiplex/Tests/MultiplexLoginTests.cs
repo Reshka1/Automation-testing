@@ -4,6 +4,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.IO;
 using System.Threading;
@@ -37,6 +38,9 @@ namespace Autotest_Multiplex.Tests
         [Test]
         public void AutotestMultiplex()
         {
+            IWebElement continueButton = fluentWait.Until(x => x.FindElement(By.XPath("//div[contains(@class, 'login__phone__submit active')]")));
+            IWebElement checkTel = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//p[contains(@class, 'login__submitted__phone__val ')]")));
+
 
             init.ClickLogin();
             //Thread.Sleep(1000);
@@ -52,9 +56,6 @@ namespace Autotest_Multiplex.Tests
             string actualTel = login.CheckUserTel();
             string expectedTel = "+380 (50) 454 2520";
             Assert.AreEqual(expectedTel, actualTel, $"{expectedTel} is not equal to {actualTel}");
-
-            object Tel = "+380 (50) 454 2520";
-            Tel.Should().NotBeNull();
 
             actualTel.Should().Contain(expectedTel);
 

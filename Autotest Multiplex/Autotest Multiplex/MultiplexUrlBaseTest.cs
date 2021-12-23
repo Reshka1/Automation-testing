@@ -14,16 +14,32 @@ namespace Autotest_Multiplex
     public class MultiplexUrlBaseTest
     {
         protected IWebDriver driver;
+        protected DefaultWait<IWebDriver> fluentWait;
+        protected WebDriverWait wait;
 
         [SetUp]
         //вызывается перед тестом
         public void Setup()
         {
             driver = new ChromeDriver();
+            fluentWait = new DefaultWait<IWebDriver>(driver);
+
             driver.Navigate().GoToUrl("https://multiplex.ua/");
             driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
-          
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            fluentWait.Timeout = TimeSpan.FromSeconds(5);
+            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+            /* Ignore the exception - NoSuchElementException that indicates that the element is not present */
+            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            fluentWait.Message = "Element to be searched not found";
+
+
         }
+
+
 
         [TearDown]
         //вызывается после теста. закрываем веб-приложение
