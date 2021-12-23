@@ -6,7 +6,7 @@ using System.Text;
 namespace Autotest_Multiplex.PageObject
 {
     /// <summary>
-    /// что тут сделала
+    /// описываю кнопку вход
     /// </summary>
     class InitPage : BasePage
     {

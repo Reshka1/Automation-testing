@@ -6,4 +6,5 @@ namespace Autotest_Multiplex.Service
     {
         Process currentProcess = Process.GetCurrentProcess();
     }
+
 }

@@ -5,6 +5,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 
@@ -21,15 +22,7 @@ namespace Autotest_Multiplex
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://multiplex.ua/");
             driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
-<<<<<<< HEAD:Autotest Multiplex/Autotest Multiplex/MultiplexUrl.cs
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(50));
-           
-=======
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
-
-            //вынести урлу, переименовать
->>>>>>> 0ad3217d38557a13568cb02c89b8941443f9b248:Autotest Multiplex/Autotest Multiplex/MultiplexUrlBaseTest.cs
+          
         }
 
         [TearDown]
@@ -37,8 +30,11 @@ namespace Autotest_Multiplex
         public void TearDown()
         {
             driver.Quit();
-            //Kill.Process();
-            //https://docs.microsoft.com/ru-ru/dotnet/api/system.diagnostics.process.kill?view=net-6.0
+            
         }
+        public void Kill()
+        {
+        }
+
     }
 }
