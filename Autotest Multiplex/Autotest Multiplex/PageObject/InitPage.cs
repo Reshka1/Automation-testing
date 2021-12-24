@@ -10,13 +10,9 @@ namespace Autotest_Multiplex.PageObject
     /// </summary>
     class InitPage : BasePage
     {
-        public InitPage(IWebDriver driver) : base (driver)
+        public InitPage(IWebDriver driver) : base(driver)
         {
 
         }
-
-
-        private IWebElement btnLogin => driver.FindElement(By.ClassName("lk_link"));
-        public void ClickLogin() => btnLogin.Click();
     }
 }

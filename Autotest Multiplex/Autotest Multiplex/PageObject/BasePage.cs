@@ -12,7 +12,7 @@ namespace Autotest_Multiplex.PageObject
         public BasePage()
         {
         }
-
+    
         public BasePage(IWebDriver webDriver)
         {
             driver = webDriver;

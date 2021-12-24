@@ -1,4 +1,5 @@
-﻿using NodaTime;
+﻿using Autotest_Multiplex.Service;
+using NodaTime;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -13,46 +14,41 @@ namespace Autotest_Multiplex
 {
     public class MultiplexUrlBaseTest
     {
-        protected IWebDriver driver;
-        protected DefaultWait<IWebDriver> fluentWait;
-        protected WebDriverWait wait;
+        #region 
+          protected IWebDriver driver;
+          protected DefaultWait<IWebDriver> fluentWait;
+          protected WebDriverWait wait;
+          protected Processes proc;
+        #endregion
 
- 
 
         [SetUp]
         //вызывается перед тестом
         public void Setup()
         {
-            driver = new ChromeDriver();
-            fluentWait = new DefaultWait<IWebDriver>(driver);
+            #region Window of Browser
+             driver = new ChromeDriver();
+             driver.Navigate().GoToUrl("https://multiplex.ua/");
+             driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
+            #endregion
 
-            driver.Navigate().GoToUrl("https://multiplex.ua/");
-            driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(40);
 
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
-
-            fluentWait.Timeout = TimeSpan.FromSeconds(20);
-            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
-            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
-            fluentWait.Message = "Element to be searched not found";
-
-
-
+            #region Comment Fluent Wait
+             //fluentWait = new DefaultWait<IWebDriver>(driver);
+             //fluentWait.Timeout = TimeSpan.FromSeconds(10);
+             //fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+             //fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+             //fluentWait.Message = "Element to be searched not found";
+            #endregion
         }
-
-
 
         [TearDown]
         //вызывается после теста. закрываем веб-приложение
         public void TearDown()
         {
             driver.Quit();
-            
+            //proc.Kill("chromedriver");
         }
-        public void Kill()
-        {
-        }
-
     }
 }
