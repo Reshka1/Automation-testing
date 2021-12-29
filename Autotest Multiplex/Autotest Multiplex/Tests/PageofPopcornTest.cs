@@ -1,6 +1,7 @@
 ﻿using Autotest_Multiplex.PageObject;
 using NUnit.Framework;
 using System.Diagnostics;
+using static Autotest_Multiplex.PageObject.LoginPage;
 
 namespace Autotest_Multiplex.Tests
 {
@@ -9,28 +10,20 @@ namespace Autotest_Multiplex.Tests
         LoginPage login;
 
         [SetUp]
-        public void Setup()
+        public void SetuP()
         {
             login = new LoginPage();
-
         }
-        public class ExpectedText
+
+        [Test]
+        public void BuyPopcorn()
         {
-            private object text;
-            //    public object expectedtext
-            //    {
-            //        get { text = "Ваше замовлення"; }
+            login.ClickBurger();
+            ExpectedText v = new ExpectedText();
+            ActualText a = new ActualText();
 
-            //    }
-            //}
-
-            [Test]
-            public void BuyPopcorn()
-            {
-                ExpectedText v = new ExpectedText();
-
-                //Assert.AreEqual(v.expectedtext, login.Actualtext, $"{v.expectedtext} is not equal to {login.Actualtext}");
-            }
+            Assert.AreEqual(expected: v.expectedtext, actual: a.actualtext, $"{v.expectedtext} is not equal to {a.actualtext}");
         }
     }
 }
+

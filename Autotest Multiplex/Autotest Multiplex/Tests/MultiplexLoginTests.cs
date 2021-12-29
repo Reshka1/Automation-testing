@@ -9,6 +9,7 @@ using SeleniumExtras.WaitHelpers;
 using System;
 using System.IO;
 using System.Threading;
+using static Autotest_Multiplex.PageObject.LoginPage;
 
 namespace Autotest_Multiplex.Tests
 {
@@ -43,12 +44,12 @@ namespace Autotest_Multiplex.Tests
 
             login.ClickLogin();
             login.UserTel("504542520");
-            login.ClickLoginBtn();
-            //Thread.Sleep(2000);
-            //var actualTel = login.CheckUserTel();
-            //var expectedTel = testData.ExpectedTel;
-            //Assert.AreEqual(expectedTel, actualTel, $"{expectedTel} is not equal to {actualTel}");
-            //actualTel.Should().Contain(expectedTel);
+
+            CheckUserTel c = new CheckUserTel();
+      
+            var expectedTel = testData.ExpectedTel;
+            Assert.AreEqual(expectedTel, actual: c.checkusertel, message: $"{expectedTel} is not equal to {c.checkusertel}");
+            //c.checkusertel.Should().Contain(expectedTel);
 
             #region Recently Code
             //var signIn = driver.FindElement(_signInButton);

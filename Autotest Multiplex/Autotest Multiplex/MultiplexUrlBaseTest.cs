@@ -49,12 +49,10 @@ namespace Autotest_Multiplex
         {
 
             driver.Quit();
-            foreach (Process proc in Process.GetProcesses())
+            Process[] chromeDriverProcesses = Process.GetProcessesByName("chromedriver");
+            foreach (var chromeDriverProcess in chromeDriverProcesses)
             {
-                //if(proc == "dfdfdf")
-                //{
-                //    proc.Kill();
-                //}               
+                chromeDriverProcess.Kill();
             }
         }
     }
