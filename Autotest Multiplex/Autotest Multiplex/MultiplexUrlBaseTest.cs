@@ -15,10 +15,10 @@ namespace Autotest_Multiplex
     public class MultiplexUrlBaseTest
     {
         #region 
-          protected IWebDriver driver;
-          protected DefaultWait<IWebDriver> fluentWait;
-          protected WebDriverWait wait;
-          protected Processes proc;
+        protected IWebDriver driver;
+        protected DefaultWait<IWebDriver> fluentWait;
+        protected WebDriverWait wait;
+        protected Processes proc;
         #endregion
 
 
@@ -27,19 +27,19 @@ namespace Autotest_Multiplex
         public void Setup()
         {
             #region Window of Browser
-             driver = new ChromeDriver();
-             driver.Navigate().GoToUrl("https://multiplex.ua/");
-             driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
+            driver = new ChromeDriver();
+            driver.Navigate().GoToUrl("https://multiplex.ua/");
+            driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
             #endregion
 
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(40);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(50);
 
             #region Comment Fluent Wait
-             //fluentWait = new DefaultWait<IWebDriver>(driver);
-             //fluentWait.Timeout = TimeSpan.FromSeconds(10);
-             //fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
-             //fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
-             //fluentWait.Message = "Element to be searched not found";
+            //fluentWait = new DefaultWait<IWebDriver>(driver);
+            //fluentWait.Timeout = TimeSpan.FromSeconds(10);
+            //fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+            //fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            //fluentWait.Message = "Element to be searched not found";
             #endregion
         }
 
@@ -47,8 +47,13 @@ namespace Autotest_Multiplex
         //вызывается после теста. закрываем веб-приложение
         public void TearDown()
         {
+
             driver.Quit();
-            //proc.Kill("chromedriver");
+            foreach (Process proc in Process.GetProcesses())
+            {
+                proc.Kill();
+            }
+
         }
     }
 }

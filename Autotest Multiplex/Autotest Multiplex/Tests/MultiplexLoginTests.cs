@@ -15,18 +15,20 @@ namespace Autotest_Multiplex.Tests
     public class Tests : MultiplexUrlBaseTest
     {
         #region Recently Code
-         //private IWebDriver driver;
-         //private readonly By _signInButton = By.ClassName("lk_link");
-         //private readonly By _loginInputButton = By.XPath("//input[@type='tel']");
-         //private readonly By _continueButton = By.XPath("//div[contains(@class, 'login__phone__submit active')]");
-         //private readonly By _usertel = By.XPath("//p[contains(@class, 'login__submitted__phone__val ')]");
-         //private const string _login = "504542520";
-         //private const string _expectedtel = "+380 (50) 454 2520";
+        //private IWebDriver driver;
+        //private readonly By _signInButton = By.ClassName("lk_link");
+        //private readonly By _loginInputButton = By.XPath("//input[@type='tel']");
+        //private readonly By _continueButton = By.XPath("//div[contains(@class, 'login__phone__submit active')]");
+        //private readonly By _usertel = By.XPath("//p[contains(@class, 'login__submitted__phone__val ')]");
+        //private const string _login = "504542520";
+        //private const string _expectedtel = "+380 (50) 454 2520";
         #endregion
+
 
         InitPage init;
         LoginPage login;
         TestData testData;
+        
 
 
         [SetUp]
@@ -37,18 +39,20 @@ namespace Autotest_Multiplex.Tests
             testData = new TestData();
         }
 
-
+                 
         [Test]
+
         public void AutotestMultiplex()
         {
+
             login.ClickLogin();
             login.UserTel("504542520");
             login.ClickLoginBtn();
             //Thread.Sleep(2000);
-             bool actualTel = login.CheckUserTel();
-             var expectedTel = testData.ExpectedTel;
-             Assert.AreEqual(expectedTel, actualTel, $"{expectedTel} is not equal to {actualTel}");
- //            actualTel.Should().Contain(expectedTel);
+            var actualTel = login.CheckUserTel();
+            var expectedTel = testData.ExpectedTel;
+            Assert.AreEqual(expectedTel, actualTel, $"{expectedTel} is not equal to {actualTel}");
+            //actualTel.Should().Contain(expectedTel);
 
             #region Recently Code
             //var signIn = driver.FindElement(_signInButton);

@@ -10,37 +10,61 @@ namespace Autotest_Multiplex.PageObject
 {
     public class LoginPage : BasePage
     {
+
         public LoginPage() : base() { }
 
-        #region ExpectedCondition waitting
-        WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(35));
-        //IWebElement btnLogin = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.ClassName("lk_link")));
-        //IWebElement btnLogin1 = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//input[@type='tel']")));
-        // IWebElement btnLogin2 = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//div[contains(@class, 'login__phone__submit active')]")));
-        // IWebElement btnLogin3 = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//p[contains(@class, 'login__submitted__phone__val ')]")));
-        #endregion
+        //IWebElement btnLogin = driver.FindElement(By.XPath("//a[contains(@class,'lk_link')]"));
+        //IWebElement loginInputButton = driver.FindElement(By.XPath("//a[contains(@class,'lk_link')]"));
+        //IWebElement continueButton = driver.FindElement(By.XPath("//a[contains(@class,'lk_link')]"));
+        //IWebElement checkTel = driver.FindElement(By.XPath("//a[contains(@class,'lk_link')]"));
 
-        private readonly string _btnLogin = "//a[contains(@class,'lk_link')]"; 
-        private readonly string _loginInputButton = "//input[@type='tel']";
-        private readonly string _continueButton = "//div[contains(@class, 'login__phone__submit active')]";
-        private readonly string _checkTel = "//p[contains(@class, 'login__submitted__phone__val ')]";
+        //private readonly string btnLogin = "//a[contains(@class,'lk_link')]";
+        //private readonly string loginInputButton = "//input[@type='tel']";
+        //private readonly string continueButton = "//div[contains(@class, 'login__phone__submit active')]";
+        //private readonly string _checkTel = "//p[contains(@class, 'login__submitted__phone__val ')]";
 
-        #region Driver for ExpectedCondition waitting
-        //private IWebElement btnLoginX => driver.FindElement(By.ClassName("lk_link"));
-        //private IWebElement loginInputButton => driver.FindElement(By.XPath("//input[@type='tel']"));
-        //private IWebElement continueButton => driver.FindElement(By.XPath(_continueButton));
-        //private IWebElement checkTel "//p[contains(@class, 'login__submitted__phone__val ')=> driver.FindElement(By.XPath(]"));
-        #endregion
+        //public void ExpectedConditions()
+        //{
+        //    WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(10));
+        //    IWebElement btnLogin = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//a[contains(@class,'lk_link')]")));
+        //    IWebElement loginInputButton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//input[@type='tel']")));
+        //    IWebElement continueButton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//div[contains(@class, 'login__phone__submit active')]")));
+        //    IWebElement checkTel = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//p[contains(@class, 'login__submitted__phone__val ')]")));
+        //    btnLogin.Click();
+        //    loginInputButton.SendKeys("504542520");
+        //    continueButton.Click();
+        //    checkTel.ToString();
 
-        #region Pushing Button
-        public void ClickLogin() => wait.Until(
-            SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath(_btnLogin))).Click();
-        public void UserTel(string text) => wait.Until(
-            SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath(_loginInputButton))).SendKeys(text);
-        public void ClickLoginBtn() => wait.Until(
-            SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath(_continueButton))).Click();
-        public bool CheckUserTel() => wait.Until(
-            SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath(_checkTel))).Displayed;
-        #endregion
+        //}
+        WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(10));
+
+        public void ClickLogin()
+        {
+             wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//a[contains(@class,'lk_link')]"))).Click();
+        }
+
+        public void UserTel(string text)
+        {
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//input[@type='tel']"))).SendKeys("504542520");
+        }
+
+        public void ClickLoginBtn()
+        {
+          wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//div[contains(@class, 'login__phone__submit active')]"))).Click();
+        }
+
+        public void CheckUserTel()
+        {
+            IWebElement checkTel = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//p[contains(@class, 'login__submitted__phone__val ')]")));
+        }
+
+
+
+        //#region Pushing Button
+        //public void ClickLogin() => wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//a[contains(@class,'lk_link')]"))).Click();
+        //public void UserTel(string text) => wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//input[@type='tel']"))).SendKeys(text);
+        //public void ClickLoginBtn() => wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//div[contains(@class, 'login__phone__submit active')]"))).Click();
+       // public void CheckUserTel() => wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//p[contains(@class, 'login__submitted__phone__val ')]"))).Text;
+        //#endregion
     }
 }
