@@ -30,7 +30,7 @@ namespace AutotestBuyPopcorn
         }
 
         [Test]
-        public void Test1()
+        public void BuyPopcorn()
         {
             ExpectedText v = new ExpectedText();
             v.expectedtext = "Ваше замовлення";
@@ -43,25 +43,10 @@ namespace AutotestBuyPopcorn
         public void TearDown()
         {
             driver.Quit();
-            foreach (Process proc in Process.GetProcesses())
-            {
-                proc.Kill();
-            }
-
-            try
-            {
-                Directory.Delete(@"C:\Users\acer\Desktop\chromedriver");
-
-                //foreach (Process proc in Process.GetProcesses())
-                //{
-                //    proc.Kill();
-                //}
-            }
-            catch
-            {
-                System.Console.WriteLine("chromedriver уже удален");
-            }
-
+            //foreach (Process proc in Process.GetProcesses())
+            //{
+            //    proc.Kill();
+            //}
         }
     }
 }

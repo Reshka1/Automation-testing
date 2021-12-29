@@ -51,9 +51,11 @@ namespace Autotest_Multiplex
             driver.Quit();
             foreach (Process proc in Process.GetProcesses())
             {
-                proc.Kill();
+                //if(proc == "dfdfdf")
+                //{
+                //    proc.Kill();
+                //}               
             }
-
         }
     }
 }
