@@ -27,7 +27,7 @@ namespace Autotest_Multiplex.Tests
 
         InitPage init;
         LoginPage login;
-        TestData testData; 
+        TestData testData;
 
         [SetUp]
         public void TeastSetups()
@@ -37,18 +37,22 @@ namespace Autotest_Multiplex.Tests
             testData = new TestData();
         }
 
-                 
+
         [Test]
         public void AutotestMultiplex()
         {
 
             login.ClickLogin();
+            Thread.Sleep(2000);
             login.UserTel("504542520");
-
-            CheckUserTel c = new CheckUserTel();
-      
+            Thread.Sleep(2000);
+            login.ClickLoginBtn();
+            Thread.Sleep(2000);
+            login.CheckUserTeL();
+         
+            var actualTel = login.CheckUserTeL();
             var expectedTel = testData.ExpectedTel;
-            Assert.AreEqual(expectedTel, actual: c.checkusertel, message: $"{expectedTel} is not equal to {c.checkusertel}");
+            Assert.AreEqual(expectedTel, actualTel, message: $"{expectedTel} is not equal to {actualTel}");
             //c.checkusertel.Should().Contain(expectedTel);
 
             #region Recently Code

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Threading;
 
 namespace Autotest_Multiplex
 {
@@ -30,6 +31,7 @@ namespace Autotest_Multiplex
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://multiplex.ua/");
             driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
+            Thread.Sleep(1000);
             #endregion
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(50);
