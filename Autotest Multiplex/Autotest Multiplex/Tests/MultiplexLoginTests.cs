@@ -37,23 +37,23 @@ namespace Autotest_Multiplex.Tests
             testData = new TestData();
         }
 
-
+        //паралельный запуска
         [Test]
         public void AutotestMultiplex()
         {
 
             login.ClickLogin();
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);// TODO delete
             login.UserTel("504542520");
             Thread.Sleep(2000);
             login.ClickLoginBtn();
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);//TODO delete
             login.CheckUserTeL();
          
             var actualTel = login.CheckUserTeL();
             var expectedTel = testData.ExpectedTel;
             Assert.AreEqual(expectedTel, actualTel, message: $"{expectedTel} is not equal to {actualTel}");
-            //c.checkusertel.Should().Contain(expectedTel);
+            //c.checkusertel.Should().Contain(expectedTel);// TODO update
 
             #region Recently Code
             //var signIn = driver.FindElement(_signInButton);

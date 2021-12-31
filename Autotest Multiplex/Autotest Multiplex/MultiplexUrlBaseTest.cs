@@ -49,12 +49,11 @@ namespace Autotest_Multiplex
         //вызывается после теста. закрываем веб-приложение
         public void TearDown()
         {
-
-            driver.Quit();
+          //  driver.Quit();
             Process[] chromeDriverProcesses = Process.GetProcessesByName("chromedriver");
-            foreach (var chromeDriverProcess in chromeDriverProcesses)
+            foreach (var item in chromeDriverProcesses)
             {
-                chromeDriverProcess.Kill();
+                item.Kill();
             }
         }
     }
