@@ -37,23 +37,21 @@ namespace Autotest_Multiplex.Tests
             testData = new TestData();
         }
 
-        //паралельный запуска
         [Test]
         public void AutotestMultiplex()
         {
 
             login.ClickLogin();
-            Thread.Sleep(2000);// TODO delete
             login.UserTel("504542520");
-            Thread.Sleep(2000);
             login.ClickLoginBtn();
-            Thread.Sleep(2000);//TODO delete
             login.CheckUserTeL();
-         
+
             var actualTel = login.CheckUserTeL();
             var expectedTel = testData.ExpectedTel;
-            Assert.AreEqual(expectedTel, actualTel, message: $"{expectedTel} is not equal to {actualTel}");
-            //c.checkusertel.Should().Contain(expectedTel);// TODO update
+            
+            // Assert.AreEqual(expectedTel, actualTel, message: $"{expectedTel} is not equal to {actualTel}");
+            actualTel.Should().Contain(expectedTel);
+
 
             #region Recently Code
             //var signIn = driver.FindElement(_signInButton);
@@ -69,5 +67,20 @@ namespace Autotest_Multiplex.Tests
             //Assert.AreEqual(_expectedtel, actualtel, "telephone is wrong, check it");
             #endregion
         }
+
     }
+
+    #region Recently Code
+    //var signIn = driver.FindElement(_signInButton);
+    //signIn.Click();
+    //Thread.Sleep(1000);
+    //var login = driver.FindElement(_loginInputButton);
+    //login.SendKeys(_login);
+    //Thread.Sleep(1000);
+    //var continueLogin = driver.FindElement(_continueButton);
+    //continueLogin.Click();
+    //Thread.Sleep(1000);
+    //var actualtel = driver.FindElement(_usertel).Text;
+    //Assert.AreEqual(_expectedtel, actualtel, "telephone is wrong, check it");
+    #endregion
 }
