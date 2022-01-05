@@ -16,7 +16,7 @@ namespace Autotest_Multiplex.PageObject
 
         public readonly string _btnCity = "//*[contains(@class, 'geo')]";
         public readonly string _chooseCity = "//span[text()='Київ']";
-        private readonly string _checkText = "//span[text()='ЦУМ']";
+        public readonly string _checkText = "//span[text()='ЦУМ']";
 
 
         public void ClickBurger() => wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(_btnCity))).Click();

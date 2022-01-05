@@ -15,7 +15,7 @@ namespace Autotest_Multiplex
 {
     [TestFixture]
     [Parallelizable]
-    public class MultiplexUrlBaseTest
+    public class BaseTest
     {
         #region 
         protected IWebDriver driver;
@@ -33,7 +33,6 @@ namespace Autotest_Multiplex
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://multiplex.ua/");
             driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
-            Thread.Sleep(1000);
             #endregion
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(50);

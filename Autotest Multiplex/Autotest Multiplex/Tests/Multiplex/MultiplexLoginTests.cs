@@ -14,7 +14,7 @@ using static Autotest_Multiplex.PageObject.LoginPage;
 
 namespace Autotest_Multiplex.Tests
 {
-    public class Tests : MultiplexUrlBaseTest
+    public class Tests : BaseTest
     {
         #region Recently Code
         //private IWebDriver driver;
@@ -53,8 +53,8 @@ namespace Autotest_Multiplex.Tests
           //  Assert.AreEqual(expectedTel, actualTel, message: $"{expectedTel} is not equal to {actualTel}");
             actualTel.Should().Contain(expectedTel);
 
-            Exeption Imax = new Exeption();
-            Assert.IsTrue(Imax.Check());
+            //ExeptionUi Logo = new ExeptionUi();
+            //Assert.IsTrue(Logo.Check());
 
 
             #region Recently Code

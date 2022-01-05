@@ -10,7 +10,7 @@ namespace Autotest_Multiplex.Tests
 {
     [TestFixture]
     [Parallelizable(ParallelScope.Fixtures)]
-    public class PageChooseCinemaTest : MultiplexUrlBaseTest
+    public class PageChooseCinemaTest : BaseTest
     {
         InitPage init;
         CityPage burger;
@@ -41,7 +41,7 @@ namespace Autotest_Multiplex.Tests
 
     [TestFixture]
     [Parallelizable(ParallelScope.Fixtures)]
-    public class PageChoosecinemaTest : MultiplexUrlBaseTest
+    public class PageChoosecinemaTest : BaseTest
     {
         InitPage init;
         LvivCity burger;
