@@ -13,6 +13,8 @@ using System.Threading;
 
 namespace Autotest_Multiplex
 {
+    [TestFixture]
+    [Parallelizable]
     public class MultiplexUrlBaseTest
     {
         #region 

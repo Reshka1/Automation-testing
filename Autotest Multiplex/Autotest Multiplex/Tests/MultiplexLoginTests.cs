@@ -1,3 +1,4 @@
+using Autotest_Multiplex.Error;
 using Autotest_Multiplex.NewFolder;
 using Autotest_Multiplex.PageObject;
 using FluentAssertions;
@@ -46,11 +47,14 @@ namespace Autotest_Multiplex.Tests
             login.ClickLoginBtn();
             login.CheckUserTeL();
 
-            var actualTel = login.CheckUserTeL();
+            var actualTel = login.ActualTel();
             var expectedTel = testData.ExpectedTel;
             
-            // Assert.AreEqual(expectedTel, actualTel, message: $"{expectedTel} is not equal to {actualTel}");
+          //  Assert.AreEqual(expectedTel, actualTel, message: $"{expectedTel} is not equal to {actualTel}");
             actualTel.Should().Contain(expectedTel);
+
+            Exeption Imax = new Exeption();
+            Assert.IsTrue(Imax.Check());
 
 
             #region Recently Code

@@ -14,10 +14,11 @@ namespace Autotest_Multiplex.PageObject
         public LoginPage() : base() { }
 
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
         public readonly string _btnLogin = "//a[contains(@class,'lk_link')]";
         private readonly string _writeTel = "//input[@type='tel']";
         private readonly string _btnContin = "//div[contains(@class, 'login__phone__submit active')]";
-        private readonly string _checkUserTel = "//p[contains(@class, 'login__submitted__phone__val ')]";
+        private readonly string _actualTel = "//p[contains(@class, 'login__submitted__phone__val ')]";
 
         public void ClickLogin()
         {
@@ -33,8 +34,11 @@ namespace Autotest_Multiplex.PageObject
         }
         public void CheckUserTeL()
         {
-            wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(_checkUserTel)));
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(_actualTel)));
         }
+
+        private IWebElement actualTel => driver.FindElement(By.XPath(_actualTel));
+        public string ActualTel() => actualTel.Text;
 
 
         //private IWebElement btnLogin => driver.FindElement(By.XPath(_btnLogin));
