@@ -1,5 +1,4 @@
-﻿using Autotest_Multiplex.PageObject;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,24 +8,23 @@ namespace Autotest_Multiplex.Error
     public class Error
     {
         protected static IWebDriver driver;
-        public readonly string _logo = "//a[contains(@class,'logolink')]";
-        public bool Check()
+        public IWebElement webelement = driver.FindElement(By.XPath("//a[contains(@class,'logolink')]"));
+        public void Check()
         {
             try
             {
-                WebElement webElement = new WebElement();
-                IWebElement wbElement = driver.FindElement(By.XPath(_logo));
-                return true;
+               WebElement webElement = new WebElement {};
+               webElement = driver.FindElement(By.XPath(webelement));
             }
-            catch (NoSuchElementException)
+            catch (Exception ex)
             {
-                return false;
+                Console.WriteLine($"Ошибка: {ex.Message}");
             }
         }
     }
 
     public class WebElement
-{
+    {
         private string _logo = "//a[contains(@class,'logolink')]";
         public string logo { get; set; }
         public string _Logo
@@ -37,10 +35,8 @@ namespace Autotest_Multiplex.Error
     }
     public class ExeptionUi : Exception
     {
-        public ExeptionUi (string message) : base(message) { }
+        public ExeptionUi(string message) : base(message) { }
     }
 }
 
-//exeption https://metanit.com/sharp/tutorial/3.17.php
-//супервизор
 
