@@ -11,15 +11,15 @@ namespace Autotest_Multiplex.Error
         public IWebElement webelement = driver.FindElement(By.XPath("//a[contains(@class,'logolink')]"));
         public void Check()
         {
-            try
-            {
-               WebElement webElement = new WebElement {};
-               webElement = driver.FindElement(By.XPath(webelement));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Ошибка: {ex.Message}");
-            }
+            //try
+            //{
+            //   WebElement webElement = new WebElement {};
+            //   webElement = driver.FindElement(By.XPath(webelement));
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine($"Ошибка: {ex.Message}");
+            //}
         }
     }
 
@@ -35,8 +35,12 @@ namespace Autotest_Multiplex.Error
     }
     public class ExeptionUi : Exception
     {
-        public ExeptionUi(string message) : base(message) { }
+        public ExeptionUi(string message) : base(message)
+        {
+            Console.WriteLine($"Ошибка: {message}");
+        }
     }
 }
 
 
+//переделать

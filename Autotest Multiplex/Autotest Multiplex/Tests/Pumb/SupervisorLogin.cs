@@ -3,7 +3,10 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
+using System;
 using System.Diagnostics;
+using System.Threading;
 
 namespace Autotest_Multiplex.Tests.Pumb
 {
@@ -15,16 +18,17 @@ namespace Autotest_Multiplex.Tests.Pumb
         protected WebDriverWait wait;
         protected Processes proc;
         #endregion
-        private readonly string _login = "//input[@class='hn-input__input')]";
-        //private readonly string _login = "//input[@class='hn-input__input')]/@title";
-        //private readonly string _login = "//*[@name='username')]";
-        private readonly string _password = "//input[contains(@class, 'hn-input__input')]";
-        //private readonly string _password = "//*[@name='password')]";
-        private readonly string _enter = "//input[contains(@class, 'hn-input__input')]";
+        private readonly string _login = "//input[contains(@name, 'username')]";
+        private readonly string _password = "//input[contains(@name, 'password')]";
+        private readonly string _enter = "//button[contains(@class, 'hn-button login-form__button content__item_4')]";
 
-        private readonly string _supervisor = "//";
-        private readonly string _expectedresult = "";
+        private readonly string _supervisor = "//div[contains(@class, 'username')]";
+        private readonly string _expectedresult = "svc_cawp_spv_tst1";
 
+        public void СheckLogin()
+        {
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(_supervisor)));
+        }
 
         [SetUp]
         public void SetUp()
@@ -39,18 +43,26 @@ namespace Autotest_Multiplex.Tests.Pumb
         [Test]
         public void Login()
         {
-            var login = driver.FindElement(By.XPath(_login));
-            login.SendKeys("svc_cawp_spv_tst1");
+            #region Resently
+            //var login = driver.FindElement(By.XPath(_login));
+            //login.SendKeys("svc_cawp_spv_tst1");
+            //var password = driver.FindElement(By.XPath(_password));
+            //password.SendKeys("p5X6H5s59Acp3CZTJQ3Mky2bc\"!CTQzi");
+            //var enter = driver.FindElement(By.XPath(_enter));
+            //enter.Click(); 
+            #endregion
 
-            const string quote = "\"";
-            var password = driver.FindElement(By.XPath(_password));
-            login.SendKeys("p5X6H5s59Acp3CZTJQ3Mky2bc"+ quote +"!CTQzi");
-            //login.SendKeys("p5X6H5s59Acp3CZTJQ3Mky2bc\"!CTQzi");
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
-            var enter = driver.FindElement(By.XPath(_enter));
-            login.Click();
+            IWebElement sendUsername = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(_login)));
+            sendUsername.SendKeys("svc_cawp_spv_tst1");
+            IWebElement sendPassword = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(_password)));
+            sendPassword.SendKeys("p5X6H5s59Acp3CZTJQ3Mky2bc\"!CTQzi");
+            IWebElement сlickEnter = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(_enter)));
+            сlickEnter.Click();
+            IWebElement сheckLogin = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(_supervisor)));
 
-            var actualresult = driver.FindElement(By.XPath(_supervisor));
+            var actualresult = driver.FindElement(By.XPath(_supervisor)).Text;
             Assert.AreEqual(_expectedresult, actualresult);
 
         }
@@ -66,4 +78,6 @@ namespace Autotest_Multiplex.Tests.Pumb
             }
         }
     }
+    //const string quote = "\"";
+    //password.SendKeys("p5X6H5s59Acp3CZTJQ3Mky2bc" + quote + "!CTQzi");
 }
