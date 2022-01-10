@@ -44,5 +44,8 @@ namespace Autotest_Multiplex.Error
         public BaseException(string message) : base(message)
         {
         }
+        public BaseException(string message, object timedata) : base(message)
+        {
+        }
     }
 }

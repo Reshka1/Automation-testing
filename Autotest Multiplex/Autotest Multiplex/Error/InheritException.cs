@@ -14,7 +14,7 @@ namespace Autotest_Multiplex.Error
             {
                 IWebElement webelement = driver.FindElement(By.XPath("//a[contains(@class,'lk_link')]"));
             }
-            catch (Exception ex)
+            catch (BaseException ex)
             {
                 Console.WriteLine($"Ошибка: {ex.Message}");
             }
