@@ -41,7 +41,6 @@ namespace Autotest_Multiplex.Tests
         [Test]
         public void AutotestMultiplex()
         {
-
             login.ClickLogin();
             login.UserTel("504542520");
             login.ClickLoginBtn();
