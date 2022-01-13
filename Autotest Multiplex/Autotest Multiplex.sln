@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autotest Multiplex", "Autotest Multiplex\Autotest Multiplex.csproj", "{977DD2C2-BE6C-45FA-9FA6-02D069C7257F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RozetkaProject", "RozetkaProject\RozetkaProject.csproj", "{5BAB221C-DCB3-4222-BC07-E8B4CAAF8A18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RozetkaProject", "RozetkaProject\RozetkaProject.csproj", "{5BAB221C-DCB3-4222-BC07-E8B4CAAF8A18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeTask", "HomeTask\HomeTask.csproj", "{AE927767-EEEF-4A0B-B442-4D930F64D04B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5BAB221C-DCB3-4222-BC07-E8B4CAAF8A18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BAB221C-DCB3-4222-BC07-E8B4CAAF8A18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BAB221C-DCB3-4222-BC07-E8B4CAAF8A18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE927767-EEEF-4A0B-B442-4D930F64D04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE927767-EEEF-4A0B-B442-4D930F64D04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE927767-EEEF-4A0B-B442-4D930F64D04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE927767-EEEF-4A0B-B442-4D930F64D04B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
