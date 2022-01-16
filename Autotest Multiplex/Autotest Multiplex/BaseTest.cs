@@ -15,8 +15,9 @@ namespace Autotest_Multiplex
 {
     [TestFixture]
     [Parallelizable]
-    public class BaseTest
+    public class BaseTest : IStart
     {
+
         #region 
         protected IWebDriver driver;
         protected DefaultWait<IWebDriver> fluentWait;
@@ -24,15 +25,16 @@ namespace Autotest_Multiplex
         protected Processes proc;
         #endregion
 
-
         [SetUp]
         //вызывается перед тестом
         public void Setup()
         {
             #region Window of Browser
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("start-maximized");
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://multiplex.ua/");
-            driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
+            //driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью
             #endregion
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(50);
@@ -56,6 +58,11 @@ namespace Autotest_Multiplex
             {
                 item.Kill();
             }
+        }
+
+        public int Time()
+        {
+            throw new NotImplementedException();
         }
     }
 }
