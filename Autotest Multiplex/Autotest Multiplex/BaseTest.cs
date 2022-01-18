@@ -32,6 +32,8 @@ namespace Autotest_Multiplex
             #region Window of Browser
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("start-maximized");
+            DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+            capabilities.setCapability("chrome.switches", Arrays.asList("--incognito"));
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://multiplex.ua/");
             //driver.Manage().Window.Maximize(); //метод позвляет открыть окно полностью

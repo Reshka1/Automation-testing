@@ -14,10 +14,15 @@
     <PackageReference Include="NodaTime" Version="3.0.9" />
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />
+    <PackageReference Include="OpenQA.Selenium.Chrome.ChromeDriverExtensions" Version="1.2.0" />
+    <PackageReference Include="OpenQA.Selenium.Winium" Version="1.0.0.3" />
+    <PackageReference Include="RemoteWebDriverOptions" Version="1.1.0" />
     <PackageReference Include="Selenium.Support" Version="4.1.0" />
     <PackageReference Include="Selenium.WebDriver" Version="4.1.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="95.0.4638.6900" />
+    <PackageReference Include="Selenium.WebDriverBackedSelenium" Version="4.1.0" />
     <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
+    <PackageReference Include="ThrottlingSuite" Version="1.0.0.2" />
   </ItemGroup>
 
   <ItemGroup>
