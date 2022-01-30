@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\background.jpg" />
+    <None Remove="Assets\Block-I.png" />
+    <None Remove="Assets\Block-J.jpg" />
+    <None Remove="Assets\Block-L.png" />
+    <None Remove="Assets\Block-O.png" />
+    <None Remove="Assets\Block-S.png" />
+    <None Remove="Assets\Block-T.jpg" />
+    <None Remove="Assets\EmptyBlock.jpg" />
+    <None Remove="Assets\Icon.png" />
+    <None Remove="Assets\TileBlue.jpg" />
+    <None Remove="Assets\TileCyan.jpg" />
+    <None Remove="Assets\TileGreen.png" />
+    <None Remove="Assets\TileOrange.png" />
+    <None Remove="Assets\TilePurpel.png" />
+    <None Remove="Assets\TileRed.png" />
+    <None Remove="Assets\TileWHite.png" />
+    <None Remove="Assets\TileYellow.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\background.jpg" />
+    <Resource Include="Assets\Block-I.png" />
+    <Resource Include="Assets\Block-J.jpg" />
+    <Resource Include="Assets\Block-L.png" />
+    <Resource Include="Assets\Block-O.png" />
+    <Resource Include="Assets\Block-S.png" />
+    <Resource Include="Assets\Block-T.jpg" />
+    <Resource Include="Assets\EmptyBlock.jpg" />
+    <Resource Include="Assets\Icon.png" />
+    <Resource Include="Assets\TileBlue.jpg" />
+    <Resource Include="Assets\TileCyan.jpg" />
+    <Resource Include="Assets\TileGreen.png" />
+    <Resource Include="Assets\TileOrange.png" />
+    <Resource Include="Assets\TilePurpel.png" />
+    <Resource Include="Assets\TileRed.png" />
+    <Resource Include="Assets\TileWHite.png" />
+    <Resource Include="Assets\TileYellow.png" />
+  </ItemGroup>
+
+</Project>
