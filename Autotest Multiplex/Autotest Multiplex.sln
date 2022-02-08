@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autotest Multiplex", "Autot
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RozetkaProject", "RozetkaProject\RozetkaProject.csproj", "{5BAB221C-DCB3-4222-BC07-E8B4CAAF8A18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeTask", "HomeTask\HomeTask.csproj", "{AE927767-EEEF-4A0B-B442-4D930F64D04B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeTask", "HomeTask\HomeTask.csproj", "{AE927767-EEEF-4A0B-B442-4D930F64D04B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,14 @@
-﻿namespace Autotest_Multiplex.NewFolder
+﻿using System.Linq;
+
+namespace Autotest_Multiplex.NewFolder
 {
     public class TestData
     {
-        public string ExpectedTel = "+380 (50) 454 2520";
-        
+        static void A()
+        {
+            string ExpectedTel = "+380 (50) 454 2520";
+            int i = ExpectedTel.Count();
+        }
+
     }
 }
